@@ -1,8 +1,9 @@
 /vendor
-/web/*
-!/web/typo3conf/
-/web/typo3conf/*
-!/web/typo3conf/LocalConfiguration.php
-!/web/typo3conf/ext
-!/web/typo3conf/l10n
-/web/typo3conf/ext/*
+/Web/*
+!/Web/typo3conf/
+/Web/typo3conf/*
+!/Web/typo3conf/LocalConfiguration.php
+!/Web/typo3conf/ext
+!/Web/typo3conf/l10n
+/Web/typo3conf/ext/*
+/gitlab-ci-scripts/_*.*
