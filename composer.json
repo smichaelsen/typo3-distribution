@@ -16,6 +16,22 @@
 		"roave/security-advisories": "dev-master",
 		"typo3/cms": "^8.7",
 		"smichaelsen/typo3-gitlab-ci": "^3.0",
+		"smichaelsen/typo3-gitlab-ci": "^3.0",
+		"typo3/cms-belog": "^8.7",
+		"typo3/cms-beuser": "^8.7",
+		"typo3/cms-filelist": "^8.7",
+		"typo3/cms-filemetadata": "^8.7",
+		"typo3/cms-form": "^8.7",
+		"typo3/cms-func": "^8.7",
+		"typo3/cms-info": "^8.7",
+		"typo3/cms-info-pagetsconfig": "^8.7",
+		"typo3/cms-lowlevel": "^8.7",
+		"typo3/cms-reports": "^8.7",
+		"typo3/cms-rsaauth": "^8.7",
+		"typo3/cms-rte-ckeditor": "^8.7",
+		"typo3/cms-setup": "^8.7",
+		"typo3/cms-tstemplate": "^8.7",
+		"typo3/cms-viewpage": "^8.7",
 		"example/site-example": "@dev"
 	},
 	"scripts": {
@@ -30,6 +46,9 @@
 		],
 		"ext-setup": [
 			"@php vendor/helhum/typo3-console/Scripts/typo3cms install:extensionsetupifpossible"
+		],
+		"serve": [
+			"cd Web && php -S localhost:8000"
 		],
 		"post-autoload-dump": [
 			"@install-gitlab-ci",
