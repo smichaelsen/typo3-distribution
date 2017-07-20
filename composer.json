@@ -9,6 +9,7 @@
 			"url": "https://composer.typo3.org/"
 		}
 	],
+	"name": "smichaelsen/typo3-distribution",
 	"description": "TYPO3 Composer distribution",
 	"license": "GPL-2.0+",
 	"require": {
