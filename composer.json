@@ -1,41 +1,49 @@
 {
-    "repositories": [
-        { "type": "path", "url": "packages/*/" },
-        { "type": "composer", "url": "https://composer.typo3.org/" }
-    ],
-    "name": "helhum/minimal-typo3-distribution",
-    "description" : "Minimum viable TYPO3 Composer distribution",
-    "license": "GPL-2.0+",
-    "require": {
-        "roave/security-advisories": "dev-master",
-        "typo3/cms": "^8.7",
-        "helhum/typo3-console": "^4.6",
-        "helhum/site-example": "@dev"
-    },
-    "scripts": {
-        "package-states": [
-            "@php vendor/helhum/typo3-console/Scripts/typo3cms install:generatepackagestates"
-        ],
-        "folder-structure": [
-            "@php vendor/helhum/typo3-console/Scripts/typo3cms install:fixfolderstructure"
-        ],
-        "ext-setup": [
-            "@php vendor/helhum/typo3-console/Scripts/typo3cms install:extensionsetupifpossible"
-
-        ],
-        "post-autoload-dump": [
-            "@package-states",
-            "@folder-structure",
-            "@ext-setup"
-        ]
-    },
-    "extra": {
-        "helhum/typo3-console": {
-            "install-extension-dummy": false
-        },
-        "typo3/cms": {
-            "cms-package-dir": "{$vendor-dir}/typo3/cms",
-            "web-dir": "web"
-        }
-    }
+	"repositories": [
+		{
+			"type": "path",
+			"url": "packages/*/"
+		},
+		{
+			"type": "composer",
+			"url": "https://composer.typo3.org/"
+		}
+	],
+	"description": "TYPO3 Composer distribution",
+	"license": "GPL-2.0+",
+	"require": {
+		"roave/security-advisories": "dev-master",
+		"typo3/cms": "^8.7",
+		"smichaelsen/typo3-gitlab-ci": "^3.0",
+		"example/site-example": "@dev"
+	},
+	"scripts": {
+		"install-gitlab-ci": [
+			"vendor/smichaelsen/typo3-gitlab-ci/scripts/install.sh"
+		],
+		"package-states": [
+			"@php vendor/helhum/typo3-console/Scripts/typo3cms install:generatepackagestates"
+		],
+		"folder-structure": [
+			"@php vendor/helhum/typo3-console/Scripts/typo3cms install:fixfolderstructure"
+		],
+		"ext-setup": [
+			"@php vendor/helhum/typo3-console/Scripts/typo3cms install:extensionsetupifpossible"
+		],
+		"post-autoload-dump": [
+			"@install-gitlab-ci",
+			"@package-states",
+			"@folder-structure",
+			"@ext-setup"
+		]
+	},
+	"extra": {
+		"helhum/typo3-console": {
+			"install-extension-dummy": false
+		},
+		"typo3/cms": {
+			"cms-package-dir": "{$vendor-dir}/typo3/cms",
+			"web-dir": "Web"
+		}
+	}
 }
